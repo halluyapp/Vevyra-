@@ -1,0 +1,12 @@
+{
+  "name": "VEYRA — Watch what moves you",
+  "short_name": "VEYRA",
+  "description": "A private cinema that lives inside your phone and TV.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#090909",
+  "theme_color": "#090909",
+  "icons": [
+    { "src": "/veyra-mark.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

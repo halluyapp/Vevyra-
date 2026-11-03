@@ -1,0 +1,89 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile document storing basic account metadata.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "maxLength": 128 },
+        "displayName": { "type": "string", "maxLength": 128 },
+        "createdAt": { "type": "string", "maxLength": 64 },
+        "updatedAt": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["uid", "updatedAt"]
+    },
+    "WatchlistEntry": {
+      "title": "WatchlistEntry",
+      "description": "An item saved to the user's watchlist.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "maxLength": 128 },
+        "subjectId": { "type": "string", "maxLength": 64 },
+        "detailPath": { "type": "string", "maxLength": 256 },
+        "title": { "type": "string", "maxLength": 256 },
+        "poster": { "type": "string", "maxLength": 1024 },
+        "type": { "type": "string", "maxLength": 32 },
+        "createdAt": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["userId", "subjectId", "detailPath", "title"]
+    },
+    "WatchHistoryEntry": {
+      "title": "WatchHistoryEntry",
+      "description": "Playback progress tracking for a movie or TV episode.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "maxLength": 128 },
+        "subjectId": { "type": "string", "maxLength": 64 },
+        "detailPath": { "type": "string", "maxLength": 256 },
+        "title": { "type": "string", "maxLength": 256 },
+        "poster": { "type": "string", "maxLength": 1024 },
+        "type": { "type": "string", "maxLength": 32 },
+        "season": { "type": "number" },
+        "episode": { "type": "number" },
+        "progressSeconds": { "type": "number" },
+        "durationSeconds": { "type": "number" },
+        "updatedAt": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["userId", "subjectId", "detailPath", "title", "progressSeconds", "updatedAt"]
+    },
+    "DownloadTask": {
+      "title": "DownloadTask",
+      "description": "Media download state and offline progress for an item.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "maxLength": 128 },
+        "subjectId": { "type": "string", "maxLength": 64 },
+        "detailPath": { "type": "string", "maxLength": 256 },
+        "title": { "type": "string", "maxLength": 256 },
+        "poster": { "type": "string", "maxLength": 1024 },
+        "season": { "type": "number" },
+        "episode": { "type": "number" },
+        "resolution": { "type": "string", "maxLength": 32 },
+        "status": { "type": "string", "enum": ["queued", "downloading", "completed", "failed", "paused"] },
+        "downloadedBytes": { "type": "number" },
+        "totalBytes": { "type": "number" },
+        "createdAt": { "type": "string", "maxLength": 64 },
+        "updatedAt": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["userId", "subjectId", "detailPath", "title", "status", "updatedAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "Root user profile document"
+    },
+    "/users/{userId}/watchlist/{itemId}": {
+      "schema": "WatchlistEntry",
+      "description": "User's bookmarked titles"
+    },
+    "/users/{userId}/history/{historyId}": {
+      "schema": "WatchHistoryEntry",
+      "description": "Playback resumption records"
+    },
+    "/users/{userId}/downloads/{downloadId}": {
+      "schema": "DownloadTask",
+      "description": "User's downloaded and downloading items"
+    }
+  }
+}

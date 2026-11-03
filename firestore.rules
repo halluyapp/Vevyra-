@@ -1,0 +1,77 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() > 0 && id.size() <= 64;
+    }
+
+    function isValidUserProfile(data, userId) {
+      return data.uid == userId &&
+        data.updatedAt is string && data.updatedAt.size() <= 64 &&
+        (!('displayName' in data) || (data.displayName is string && data.displayName.size() <= 128));
+    }
+
+    function isValidWatchlist(data, userId) {
+      return data.userId == userId &&
+        data.subjectId is string && data.subjectId.size() <= 64 &&
+        data.detailPath is string && data.detailPath.size() <= 256 &&
+        data.title is string && data.title.size() <= 256;
+    }
+
+    function isValidHistory(data, userId) {
+      return data.userId == userId &&
+        data.subjectId is string && data.subjectId.size() <= 64 &&
+        data.detailPath is string && data.detailPath.size() <= 256 &&
+        data.title is string && data.title.size() <= 256 &&
+        data.progressSeconds is number && data.progressSeconds >= 0 &&
+        data.updatedAt is string && data.updatedAt.size() <= 64;
+    }
+
+    function isValidDownload(data, userId) {
+      return data.userId == userId &&
+        data.subjectId is string && data.subjectId.size() <= 64 &&
+        data.detailPath is string && data.detailPath.size() <= 256 &&
+        data.title is string && data.title.size() <= 256 &&
+        data.status is string && data.status in ['queued', 'downloading', 'completed', 'failed', 'paused'] &&
+        data.updatedAt is string && data.updatedAt.size() <= 64;
+    }
+
+    match /users/{userId} {
+      allow get, write: if isOwner(userId) && isValidId(userId);
+      allow create: if isOwner(userId) && isValidId(userId) && isValidUserProfile(request.resource.data, userId);
+      allow update: if isOwner(userId) && isValidId(userId) && isValidUserProfile(request.resource.data, userId);
+      allow delete: if isOwner(userId) && isValidId(userId);
+
+      match /watchlist/{itemId} {
+        allow get, list: if isOwner(userId);
+        allow create, update: if isOwner(userId) && isValidId(itemId) && isValidWatchlist(request.resource.data, userId);
+        allow delete: if isOwner(userId) && isValidId(itemId);
+      }
+
+      match /history/{historyId} {
+        allow get, list: if isOwner(userId);
+        allow create, update: if isOwner(userId) && isValidId(historyId) && isValidHistory(request.resource.data, userId);
+        allow delete: if isOwner(userId) && isValidId(historyId);
+      }
+
+      match /downloads/{downloadId} {
+        allow get, list: if isOwner(userId);
+        allow create, update: if isOwner(userId) && isValidId(downloadId) && isValidDownload(request.resource.data, userId);
+        allow delete: if isOwner(userId) && isValidId(downloadId);
+      }
+    }
+
+    // Default deny
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

@@ -1,0 +1,1390 @@
+VEYRA — COMPLETE FRONTEND UI/UX BUILD
+
+You are building the frontend of a new streaming application called VEYRA.
+
+This is a real application frontend, not a mockup, not a collection of static screenshots, and not a research document.
+
+The backend will be integrated later.
+
+Your job RIGHT NOW is to build the complete, polished, interactive frontend UI/UX of VEYRA so that the entire product can be navigated and experienced visually before backend integration.
+
+---
+
+1. PRODUCT IDENTITY
+
+Brand
+
+Name: VEYRA
+
+Tagline: Watch what moves you.
+
+Product
+
+VEYRA is a modern streaming platform for movies and series.
+
+The product should feel like:
+
+«A private cinema that lives inside your phone and TV.»
+
+It should feel cinematic, premium, minimal, modern and confident.
+
+Do NOT make it look like:
+
+- a generic movie database
+- an API dashboard
+- a basic CRUD application
+- a Netflix clone
+- a TikTok clone
+- an overly futuristic cyberpunk interface
+- a purple AI application
+- a glassmorphism template
+- a generic React Native starter
+
+VEYRA needs its own visual identity.
+
+---
+
+2. CORE DESIGN PHILOSOPHY
+
+The interface is content-first.
+
+The artwork, title, and ability to start watching should dominate the experience.
+
+Visual hierarchy:
+
+1. Cinematic artwork
+2. Title
+3. Important metadata
+4. Primary Watch action
+5. Supporting information
+6. Secondary actions
+
+The UI should use generous spacing and strong visual hierarchy.
+
+Avoid clutter.
+
+Avoid excessive borders.
+
+Avoid excessive cards inside cards.
+
+Avoid unnecessary buttons.
+
+Every visual element should have a reason to exist.
+
+---
+
+3. VISUAL THEME
+
+Use a cinematic dark interface.
+
+Primary background:
+
+"#080808"
+
+Secondary surface:
+
+"#111111"
+
+Elevated surface:
+
+"#181818"
+
+Primary text:
+
+"#FFFFFF"
+
+Secondary text:
+
+"#A1A1AA"
+
+Primary accent:
+
+"#E5093F"
+
+The crimson accent should be used intentionally for:
+
+- Watch actions
+- Selected states
+- Progress
+- Important focus states
+- Active controls
+- Small visual accents
+
+Do NOT cover the entire application in red.
+
+The application should remain predominantly black and cinematic.
+
+---
+
+4. TYPOGRAPHY
+
+Use a modern clean sans-serif such as:
+
+- Inter
+- SF Pro equivalent
+- Manrope
+
+Use strong typography hierarchy.
+
+Hero titles can be extremely large.
+
+Section headings should be clear but restrained.
+
+Metadata should be smaller and secondary.
+
+Do not use decorative fonts.
+
+---
+
+5. LOGO / BRAND MARK
+
+Create a simple VEYRA wordmark and a recognizable V/play-inspired symbol.
+
+The logo should work in:
+
+- Splash screen
+- Header
+- App icon
+- TV interface
+- Player
+- Empty states
+
+Do not create a complicated logo.
+
+It should remain recognizable at small sizes.
+
+---
+
+6. REQUIRED FRONTEND SCREENS
+
+Build ALL of these screens.
+
+Authentication
+
+- Splash
+- Welcome
+- Sign In
+- Sign Up
+- Forgot Password
+
+Backend does not need to work yet.
+
+Use realistic frontend interactions and believable placeholder behavior.
+
+---
+
+7. MOBILE HOME
+
+Build a premium streaming Home screen.
+
+Structure:
+
+VEYRA                         Search   Profile
+
+                HERO
+
+             [Artwork]
+
+             Movie Title
+       ⭐ 8.7 · 2026 · 2h 08m
+
+       [ ▶ Watch Now ] [ + My List ]
+
+
+CONTINUE WATCHING                         See all ›
+
+[Poster] [Poster] [Poster] [Poster]
+
+
+TRENDING NOW
+
+[Poster] [Poster] [Poster] [Poster]
+
+
+POPULAR MOVIES
+
+[Poster] [Poster] [Poster] [Poster]
+
+
+POPULAR SERIES
+
+[Poster] [Poster] [Poster] [Poster]
+
+
+BECAUSE YOU WATCHED...
+
+[Poster] [Poster] [Poster]
+
+The hero artwork should blend naturally into the black background using a dark gradient.
+
+Do not make the hero look like a rectangular banner pasted onto the page.
+
+The image should visually disappear into the interface.
+
+---
+
+8. MOVIE CARDS
+
+Create reusable movie cards.
+
+Cards should support:
+
+- Poster
+- Title
+- Year
+- Rating where appropriate
+- Progress indicator for Continue Watching
+- Focus/pressed state
+- Loading state
+
+Cards should feel premium and cinematic.
+
+Do not put excessive text beneath every poster.
+
+Artwork should remain the dominant element.
+
+---
+
+9. SERIES CARDS
+
+Series cards should visually communicate that the content is a series when appropriate.
+
+Support:
+
+- Poster
+- Title
+- Season information where useful
+- Progress state
+- Focus/pressed state
+
+---
+
+10. SEARCH
+
+Build a complete search experience.
+
+Initial state:
+
+←   Search movies & series
+
+When typing:
+
+stran
+
+show autocomplete suggestions.
+
+Then show results separated into useful categories such as:
+
+Movies
+
+[Poster] Title
+
+
+Series
+
+[Poster] Title
+
+Search must feel fast and fluid even though it uses mock frontend data for now.
+
+Include:
+
+- Search input
+- Clear button
+- Suggestions
+- Results
+- Empty state
+- No-results state
+- Loading state
+
+---
+
+11. DISCOVER
+
+Create a dedicated Discover experience.
+
+It should NOT simply duplicate Home.
+
+Top:
+
+DISCOVER
+
+Find your next obsession.
+
+[ Movies ] [ Series ]
+
+Then sections such as:
+
+- Trending
+- Popular
+- New Releases
+- Top Rated
+- Action
+- Comedy
+- Drama
+- Sci-Fi
+- Anime
+- Hidden Gems
+- Because You Watched...
+
+Use horizontally scrollable genre controls and cinematic content rails.
+
+---
+
+12. MOVIE DETAILS
+
+Create a premium cinematic details screen.
+
+Top:
+
+- Back button
+- Large backdrop
+- Dark gradient
+- Title
+- Rating
+- Year
+- Runtime
+- Genres
+- Watch button
+- My List button
+
+Then:
+
+ABOUT
+
+Description...
+
+
+CAST
+
+Actor   Actor   Actor   Actor
+
+
+MORE LIKE THIS
+
+[Poster] [Poster] [Poster] [Poster]
+
+The backdrop must blend into the page rather than stopping abruptly.
+
+---
+
+13. SERIES DETAILS
+
+Create a dedicated series details experience.
+
+Include:
+
+- Backdrop
+- Title
+- Rating
+- Year
+- Number of seasons
+- Continue Watching
+- My List
+- Description
+- Season selector
+- Episode list
+- Episode descriptions
+- Episode duration
+- Watched state
+- Current progress
+
+Example:
+
+Season 2                         ⌄
+
+S02E01
+Episode title
+47 min
+
+S02E02
+Episode title
+51 min
+
+S02E03
+Episode title
+49 min
+
+Current episode should have a subtle crimson indicator.
+
+---
+
+14. EPISODE EXPERIENCE
+
+Episode rows should be highly usable.
+
+Each episode should support:
+
+- Thumbnail
+- Episode number
+- Title
+- Runtime
+- Description
+- Watched state
+- Progress
+- Play action
+
+Make the hierarchy clear.
+
+---
+
+15. VIDEO PLAYER
+
+Build a complete frontend player experience using a local/mock video source if necessary.
+
+The player should visually support:
+
+- Fullscreen
+- Play/pause
+- Seek
+- 10-second rewind
+- 10-second forward
+- Progress bar
+- Current time
+- Duration
+- Quality selector
+- Subtitle selector
+- Audio selector placeholder
+- Episode controls
+- Back button
+- Loading state
+- Buffering state
+- Error state
+
+Initial player:
+
+FULLSCREEN VIDEO
+
+Tap:
+
+←                                      ⚙
+
+                 ▶
+
+
+───────●────────────────────────────
+18:42                         42:17
+
+       [−10]    ▶    [+10]
+
+Quality     Subtitles     Episodes
+
+Controls should automatically fade away after inactivity.
+
+The video should become the primary focus.
+
+---
+
+16. PLAYER QUALITY SHEET
+
+Create a dark bottom sheet.
+
+VIDEO QUALITY
+
+✓ Auto
+
+1080p
+720p
+480p
+360p
+
+Selected option should use the VEYRA crimson accent.
+
+---
+
+17. SUBTITLE SHEET
+
+Create:
+
+SUBTITLES
+
+○ Off
+
+● English
+○ Spanish
+○ French
+○ Arabic
+
+Use the same bottom-sheet visual language.
+
+---
+
+18. NEXT EPISODE
+
+For series, create a cinematic next-episode overlay.
+
+Example:
+
+NEXT EPISODE
+
+S02E07
+
+The Return
+
+[ ▶ Play ]
+
+It should appear naturally near the end of an episode.
+
+---
+
+19. MY LIST
+
+Build the complete My List screen.
+
+Tabs:
+
+Movies     Series
+
+Then poster grids.
+
+Include:
+
+- Empty state
+- Populated state
+- Remove action
+- Details navigation
+- Loading state
+
+Empty state:
+
+♡
+Nothing here yet.
+
+Save something you want
+to watch later.
+
+[ Explore ]
+
+---
+
+20. WATCH HISTORY
+
+Create a clean history screen.
+
+Show:
+
+- Recently watched titles
+- Date/time or relative date
+- Progress
+- Episode information
+- Resume action
+- Clear history interaction
+
+---
+
+21. CONTINUE WATCHING
+
+Create a dedicated Continue Watching experience.
+
+Cards should show:
+
+Poster
+
+Series Title
+S02E04
+
+━━━━━━━━━━
+42 min remaining
+
+Progress must be visually obvious but subtle.
+
+---
+
+22. DOWNLOADS
+
+Build the complete frontend Downloads interface.
+
+Include:
+
+Downloading
+
+Movie Title
+1080p
+
+████████████░░░ 78%
+
+Pause
+
+Completed
+
+Movie Title
+720p                         ✓
+
+Also include:
+
+- Empty state
+- Storage information
+- Pause
+- Resume
+- Cancel
+- Delete
+
+Actual download functionality can remain mocked until backend integration.
+
+---
+
+23. PROFILE
+
+Create:
+
+Profile
+
+Avatar
+
+Name
+Email
+
+Continue Watching
+Watch History
+My List
+Downloads
+
+Playback
+Video Quality
+Subtitles
+
+Devices
+Notifications
+Account
+Privacy
+About
+
+Keep it minimal.
+
+---
+
+24. SETTINGS
+
+Build real interactive frontend settings.
+
+Include:
+
+- Video quality
+- Autoplay
+- Subtitles
+- Notifications
+- Appearance
+- Language
+- Playback preferences
+- Account
+- Privacy
+- Storage
+- About
+
+Settings should visually update when toggled.
+
+---
+
+25. DEVICES
+
+Create a Devices screen.
+
+Example:
+
+DEVICES
+
+This phone
+Android
+
+Living Room TV
+Android TV
+
+Chrome
+Web
+
+Show active device.
+
+Allow frontend-only remove/sign-out interaction for now.
+
+---
+
+26. NOTIFICATIONS
+
+Create a notification center.
+
+Examples:
+
+New episode available
+Your show has returned.
+
+New release
+A title you may like is now available.
+
+Unread notifications should have a subtle indicator.
+
+---
+
+27. EMPTY STATES
+
+Every major feature must have a designed empty state.
+
+Do not use:
+
+No data found.
+
+Use meaningful product-specific messaging.
+
+---
+
+28. LOADING STATES
+
+Do NOT rely on giant spinners.
+
+Use skeleton loading:
+
+- Poster skeletons
+- Text skeletons
+- Hero skeleton
+- Episode skeletons
+- Profile skeletons
+
+Use subtle motion.
+
+---
+
+29. ERROR STATES
+
+Create reusable error components.
+
+Example:
+
+Something went wrong.
+
+We couldn't load this right now.
+
+[ Try Again ]
+
+Playback error:
+
+Playback couldn't start.
+
+[ Try Again ]
+
+---
+
+30. OFFLINE STATE
+
+Create a complete offline experience.
+
+You're offline.
+
+Your downloaded movies
+are still available.
+
+[ View Downloads ]
+
+Cached UI should remain visually coherent.
+
+---
+
+31. MOBILE NAVIGATION
+
+Use four primary destinations:
+
+Home
+Search
+My List
+Me
+
+Navigation should be visually subtle and preferably floating slightly above the bottom edge.
+
+Do not make the navigation bar huge.
+
+---
+
+32. TV EXPERIENCE
+
+IMPORTANT:
+
+The TV interface is NOT a stretched mobile interface.
+
+Build a dedicated TV layout.
+
+TV should support:
+
+- Android TV
+- Google TV style navigation
+- Remote control
+- D-pad
+- Select
+- Back
+- Play/Pause
+- Rewind
+- Fast Forward
+
+TV UI should use:
+
+- Larger typography
+- Larger artwork
+- Larger cards
+- More horizontal space
+- Strong focus states
+- Clear D-pad navigation
+
+TV Home:
+
+VEYRA                              Search   Profile
+
+
+                    FEATURED
+
+                  Movie Title
+
+              ⭐ 8.8 · 2026
+
+              [ ▶ WATCH NOW ]
+
+
+CONTINUE WATCHING
+
+[      ] [      ] [      ] [      ]
+
+
+TRENDING
+
+[      ] [      ] [      ] [      ]
+
+---
+
+33. TV FOCUS SYSTEM
+
+This is critical.
+
+Every interactive TV element must have a clear focused state.
+
+Example:
+
+Normal:
+
+┌───────────┐
+│           │
+│   POSTER  │
+│           │
+└───────────┘
+
+
+Focused:
+
+┏━━━━━━━━━━━┓
+┃           ┃
+┃   POSTER  ┃
+┃           ┃
+┗━━━━━━━━━━━┛
+
+Focused elements should:
+
+- Slightly scale
+- Use a subtle crimson highlight
+- Clearly indicate selection
+- Never cause layout chaos
+
+D-pad navigation must feel predictable.
+
+---
+
+34. TV PLAYER
+
+Build a dedicated TV player layout.
+
+Large video.
+
+Controls optimized for remote interaction.
+
+←                                      ⚙
+
+
+                 VIDEO
+
+
+━━━━━━━━━━━━●━━━━━━━━━━━━━━━━
+
+18:42                         42:17
+
+[−10]      ▶      [+10]
+
+Audio     Subtitles     Quality     Episodes
+
+Controls should disappear when inactive.
+
+---
+
+35. MOTION DESIGN
+
+Motion must be purposeful.
+
+Use subtle:
+
+- Fade
+- Scale
+- Slide
+- Crossfade
+- Hero transitions
+- Bottom-sheet transitions
+- Card focus animations
+
+Avoid excessive animations.
+
+The application should feel expensive, not hyperactive.
+
+---
+
+36. RESPONSIVE DESIGN
+
+The frontend must adapt properly to:
+
+- Android phones
+- Small phones
+- Large phones
+- Tablets
+- Landscape
+- TV
+- Large TV displays
+
+Do not hard-code one screen size.
+
+---
+
+37. MOCK DATA ARCHITECTURE
+
+Because the backend is NOT being connected yet, create a clean mock data layer.
+
+For example:
+
+/mock
+  movies
+  series
+  episodes
+  recommendations
+  trending
+  search
+  watchHistory
+  watchProgress
+  downloads
+  notifications
+
+Use realistic movie/series artwork and metadata.
+
+Do NOT scatter fake data directly throughout components.
+
+The future backend should be replaceable without rewriting the UI.
+
+---
+
+38. FUTURE BACKEND CONTRACT
+
+Build the frontend as though the future backend will provide:
+
+/v1/home
+/v1/discover
+/v1/search
+/v1/search/suggestions
+
+/v1/title/:id
+/v1/title/:id/episodes
+/v1/title/:id/sources
+/v1/title/:id/subtitles
+
+/v1/trending
+/v1/recommendations
+
+/v1/me
+/v1/me/list
+/v1/me/history
+/v1/me/progress
+/v1/me/downloads
+/v1/me/devices
+
+Do NOT connect to MovieBox directly.
+
+Do NOT put MovieBox-specific logic inside UI components.
+
+The backend adapter will come later.
+
+---
+
+39. COMPONENT ARCHITECTURE
+
+Create reusable components instead of duplicating screens.
+
+At minimum:
+
+MovieCard
+SeriesCard
+Hero
+ContentRail
+PosterGrid
+WatchButton
+MyListButton
+SearchBar
+GenreChip
+EpisodeRow
+ProgressBar
+BottomSheet
+PlayerControls
+QualitySelector
+SubtitleSelector
+EmptyState
+ErrorState
+Skeleton
+NotificationItem
+SettingsRow
+DeviceRow
+
+---
+
+40. UX RULE
+
+Every interaction must have a visible response.
+
+Examples:
+
+Tap My List:
+
++ My List
+     ↓
+✓ In My List
+
+Tap Watch:
+
+Watch Now
+     ↓
+Player opens
+
+Toggle setting:
+
+OFF → ON
+
+Download:
+
+Download
+     ↓
+Downloading...
+     ↓
+Complete ✓
+
+Nothing should appear dead or unfinished.
+
+---
+
+41. QUALITY BAR
+
+The final result must look like a real production streaming application.
+
+Do not stop after creating the Home screen.
+
+Do not create placeholder rectangles and call them finished.
+
+Every major screen must be navigable.
+
+Every major interaction must work on the frontend.
+
+Every screen needs:
+
+- Correct hierarchy
+- Realistic content
+- Loading state
+- Empty state where applicable
+- Error state where applicable
+- Proper transitions
+- Responsive layout
+- Consistent components
+
+---
+
+42. IMPORTANT DEVELOPMENT RULE
+
+Backend integration is explicitly OUT OF SCOPE for this phase.
+
+Do not spend time building:
+
+- Supabase integration
+- MovieBox API integration
+- Authentication backend
+- Media proxy integration
+- Real downloads
+- Real recommendations
+
+Instead, build the frontend against clean mock services/interfaces so those systems can be plugged in later.
+
+---
+
+43. FINAL EXPERIENCE
+
+When the frontend is complete, I should be able to:
+
+1. Launch VEYRA
+2. See the branded splash
+3. Enter the app
+4. Browse Home
+5. Scroll content rails
+6. Open Discover
+7. Search
+8. See suggestions
+9. Open a movie
+10. Open a series
+11. Browse seasons
+12. Browse episodes
+13. Start the player
+14. Open player controls
+15. Change quality
+16. Open subtitles
+17. Add/remove My List
+18. View Continue Watching
+19. View History
+20. View Downloads
+21. Open Profile
+22. Change settings
+23. View devices
+24. View notifications
+25. Experience loading states
+26. Experience empty states
+27. Experience error states
+28. Experience offline states
+29. Navigate the TV interface
+30. Navigate TV using D-pad/keyboard controls
+31. Use the TV player
+
+The frontend should feel like one coherent product from beginning to end.
+
+---
+
+44. DO NOT MAKE THESE MISTAKES
+
+Do NOT:
+
+- Build only a Home screen
+- Build static screenshots
+- Use placeholder lorem ipsum
+- Use random colors
+- Use excessive gradients
+- Use excessive glassmorphism
+- Use giant red surfaces
+- Copy Netflix exactly
+- Make TV a scaled mobile UI
+- Scatter mock data throughout the code
+- Hard-code layouts to one device
+- Connect UI directly to MovieBox
+- Leave navigation dead
+- Leave buttons non-functional
+- Ignore loading states
+- Ignore empty states
+- Ignore errors
+- Ignore offline UX
+- Ignore accessibility
+- Replace the VEYRA brand with another name
+- Rename the product
+- Invent unrelated features
+
+---
+
+45. BUILD PHILOSOPHY
+
+Build the application in this order:
+
+1. Design system
+       ↓
+2. Navigation
+       ↓
+3. Shared components
+       ↓
+4. Authentication screens
+       ↓
+5. Home
+       ↓
+6. Discover
+       ↓
+7. Search
+       ↓
+8. Details
+       ↓
+9. Series/Episodes
+       ↓
+10. Player
+       ↓
+11. My List
+       ↓
+12. History
+       ↓
+13. Downloads
+       ↓
+14. Profile
+       ↓
+15. Settings
+       ↓
+16. Notifications
+       ↓
+17. Offline/error/loading states
+       ↓
+18. TV interface
+       ↓
+19. TV player
+       ↓
+20. Final polish
+
+Before declaring the work complete, inspect the entire application as a user would.
+
+Fix:
+
+- Broken navigation
+- Dead buttons
+- Incorrect spacing
+- Inconsistent typography
+- Inconsistent card sizes
+- Bad responsive behavior
+- Poor focus states
+- Missing states
+- Visual inconsistencies
+- Overflow
+- Layout problems
+- Touch targets
+- TV navigation problems
+
+The final result should be something I can install and actually walk through as if VEYRA were already a functioning streaming service, even though the real backend is not connected yet.
+
+FINAL INSTRUCTION
+
+Do not give me a long explanation of what you plan to build.
+
+BUILD IT.
+
+Create the frontend, implement the navigation, implement the interactions, populate the mock data, implement the responsive mobile and TV experiences, and polish the UI.
+
+When finished, provide:
+
+1. What was built
+2. What remains intentionally mocked
+3. How to run it
+4. Any important technical limitations
+5. The exact files/components created or significantly changed
+
+Do not claim something was implemented unless it actually exists and works.
+46. GITHUB ACTIONS + APK BUILD
+
+The project must include a working GitHub Actions Android APK build pipeline as part of this frontend phase.
+
+Do not merely create a YAML file and claim CI is complete.
+
+Actually configure and verify the workflow.
+
+Required outcome
+
+A GitHub Actions workflow must be able to:
+
+GitHub push
+    ↓
+GitHub Actions
+    ↓
+Install dependencies
+    ↓
+Validate project
+    ↓
+Build Android APK
+    ↓
+Upload APK as workflow artifact
+
+The workflow should build a debug APK for development/testing.
+
+If the project structure supports it cleanly, also prepare the configuration so a release APK can be added later without redesigning the CI pipeline.
+
+Requirements
+
+Create the appropriate workflow under:
+
+.github/workflows/
+
+Use the project's actual framework and package manager.
+
+The workflow should:
+
+- Check out the repository
+- Set up the required Node.js version
+- Set up Java/Android tooling when required
+- Install dependencies using the project's lockfile/package manager
+- Run the appropriate frontend validation/build checks
+- Build the Android APK
+- Fail correctly if the build fails
+- Upload the generated APK using GitHub Actions artifacts
+- Give the artifact a clear name such as:
+
+veyra-debug-apk
+
+Do not hard-code machine-specific paths.
+
+Do not rely on the developer's local computer.
+
+Do not require paid CI services.
+
+Use GitHub Actions wherever possible.
+
+Expo / React Native
+
+If the project is Expo/React Native, inspect the actual project configuration first.
+
+Use the appropriate Android build method for the project.
+
+Do not blindly assume a particular Expo workflow.
+
+If EAS is required, configure it correctly and document exactly what is needed.
+
+If a local Gradle build is more appropriate for the current project structure, use that instead.
+
+The final workflow must correspond to the actual repository.
+
+Build verification
+
+After creating the workflow:
+
+1. Inspect the generated Android project/configuration.
+2. Run the relevant local validation/build checks if the environment allows it.
+3. Commit the workflow to the repository.
+4. Push the changes to the current working branch.
+5. Trigger the GitHub Actions workflow.
+6. Inspect the workflow result.
+7. Fix any build errors.
+8. Re-run until the workflow succeeds.
+9. Confirm that the APK artifact is actually generated.
+
+Do NOT say:
+
+«"GitHub Actions has been configured"»
+
+unless the workflow has actually been created and verified.
+
+Do NOT say:
+
+«"APK build is working"»
+
+unless a successful workflow run has produced the APK artifact.
+
+Repository safety
+
+Before changing the repository:
+
+- Inspect the existing branch.
+- Inspect existing GitHub Actions workflows.
+- Do not delete working workflows unnecessarily.
+- Do not overwrite unrelated project configuration.
+- Keep changes focused on VEYRA.
+- Do not push to a different repository.
+- Do not falsely claim a push occurred.
+
+If the current repository has an existing CI/build system, integrate with it rather than creating conflicting workflows.
+
+Final report
+
+At the end, report:
+
+Frontend: COMPLETE / PARTIAL
+Mobile UI: COMPLETE / PARTIAL
+TV UI: COMPLETE / PARTIAL
+Navigation: COMPLETE / PARTIAL
+Mock data: COMPLETE / PARTIAL
+GitHub Actions: PASS / FAIL
+Android APK build: PASS / FAIL
+APK artifact: GENERATED / NOT GENERATED
+Repository push: SUCCESS / FAILED
+
+Include the GitHub Actions workflow name and, if successful, the workflow run identifier.
+
+The objective is simple:
+
+I should be able to push to GitHub and have GitHub build a usable VEYRA Android APK automatically.

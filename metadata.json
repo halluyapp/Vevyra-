@@ -1,0 +1,6 @@
+{
+  "name": "VEYRA",
+  "description": "Watch what moves you — cinematic streaming application.",
+  "permissions": [],
+  "capabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

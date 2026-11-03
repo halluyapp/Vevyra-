@@ -1,0 +1,93 @@
+name: Android APK
+
+on:
+  push:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: android-apk-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-debug-apk:
+    name: Validate and build debug APK
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    # No secrets are needed: the catalog endpoint and key are compiled into the
+    # app (DEFAULT_API_BASE_URL / DEFAULT_API_KEY in
+    # src/services/moviebox/client.js). VITE_* env vars would only override
+    # them, and they are PUBLIC either way — Vite inlines them into the web
+    # bundle and the APK.
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Set up Java
+        uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: gradle
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v4.0.4
+
+      - name: Install Android build tools
+        run: |
+          set +o pipefail
+          yes | sdkmanager --licenses
+          set -o pipefail
+          sdkmanager "platform-tools" "platforms;android-35" "build-tools;35.0.0"
+
+      - name: Install frontend dependencies
+        run: npm ci
+
+      - name: Run service-layer tests
+        run: npm test
+
+      - name: Run render smoke test
+        run: npm run test:ssr
+
+      - name: Check the player binds a real stream URL
+        run: npm run test:player
+
+      - name: Validate frontend production build
+        run: npm run build
+
+      - name: Verify the built bundle can reach the catalog
+        run: |
+          set -euo pipefail
+          bundle=$(ls dist/assets/*.js)
+          grep -q 'api\.zstlab\.cyou' $bundle || { echo "::error::The catalog endpoint is missing from the bundle."; exit 1; }
+          grep -qE 'zst_[A-Za-z0-9]{16,}' $bundle || { echo "::error::The catalog API key is missing from the bundle."; exit 1; }
+          echo "Catalog endpoint and key are present in the built bundle."
+
+      - name: Sync Capacitor Android project
+        run: npx cap sync android
+
+      - name: Build debug APK
+        run: ./gradlew --no-daemon --stacktrace assembleDebug
+        working-directory: android
+
+      - name: Verify APK output
+        run: test -s android/app/build/outputs/apk/debug/app-debug.apk
+
+      - name: Upload debug APK
+        uses: actions/upload-artifact@v7
+        with:
+          name: veyra-debug-apk
+          path: android/app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
+          retention-days: 14
